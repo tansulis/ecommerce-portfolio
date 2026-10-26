@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(ROOT, "output", "charts")
+OUT = os.path.join(ROOT, "charts")
 os.makedirs(OUT, exist_ok=True)
 EDA = os.path.join(ROOT, "output", "eda")
 
@@ -88,7 +88,7 @@ frames = list(range(n)) + [n - 1] * 15
 ani = FuncAnimation(fig, update, frames=frames, init_func=init,
                     interval=180, blit=True, repeat_delay=800)
 
-gif_path = os.path.join(OUT, "chart1_time_pattern_anim.gif")
+gif_path = os.path.join(OUT, "01b_daily_trend_anim.gif")
 ani.save(gif_path, writer="pillow", fps=6)
 plt.close(fig)
 print("已生成动图:", gif_path)

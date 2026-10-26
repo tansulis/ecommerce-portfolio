@@ -4,6 +4,15 @@
 >
 > 技术栈：`Python 3.13` · `pandas 3.1` · `matplotlib 3.11` · 数据量 **12,256,906 行 × 6 列**（31 天 / 10,000 用户）
 
+![Python](https://img.shields.io/badge/Python-3.13-3776AB)
+![Pandas](https://img.shields.io/badge/Pandas-3.1-150458)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-3.11-11557C)
+![Data](https://img.shields.io/badge/Data-12.26M%20rows-orange)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+
+**在线浏览**：[tansulis.github.io/ecommerce-portfolio](https://tansulis.github.io/ecommerce-portfolio/)　|　**作者**：大数据技术专业 · 专科三年级　|　**项目周期**：2026.10
+
 ---
 
 ## 项目定位
@@ -19,6 +28,16 @@
 ## ⚡ 30 秒速览
 
 **一句话**：基于天池公开数据集（淘宝移动端 1225 万行行为日志、1 万用户、31 天），回答「用户什么时候买、什么品类好卖、谁是高价值用户、转化路径哪步最强」4 个业务问题，产出 4 条可落地的运营建议。
+
+**核心成果一览**
+
+| 指标 | 结果 |
+|---|---|
+| 数据规模 | 原始 **12,256,906 行 × 6 字段**；清洗后 **8,164,040 行**，覆盖 10,000 用户 / 31 天（2014-11-18 ~ 12-18） |
+| 数据质量 | 整行完全重复 **33.39%**（R1 去重）；`user_geohash` 原始缺失 68%，按 R4 保留不删、仅做标记 |
+| 分析维度 | 时间规律 · 品类效率 · 购买集中度 · 转化漏斗 · 匿名地域分区（五维） |
+| 核心发现 | 双十二支付 **4.46×**、加购→支付 **21.11%**、前 20% 用户仅贡献 **54.8%**、品类转化率差 **10 倍** |
+| 产出物 | 6 章报告 1 份 · 静态图 5 张 · 31 天动图 1 张 · 在线网页 1 个 · 面试题库 16 题 |
 
 **四条核心结论**：
 
@@ -53,15 +72,15 @@
 
 ## 📊 代表性图表
 
-![时间规律](output/charts/chart1_time_pattern.png)
+![时间规律](charts/01_daily_hourly_trend.png)
 
 > 双轴时间趋势：双十二（12-12）支付为日常 4.46 倍，点击仅 1.83 倍——大促放大的是成交意愿而非流量。
 
-![意向转化漏斗](output/charts/chart4_intent_funnel.png)
+![意向转化漏斗](charts/04_behavior_intent_funnel.png)
 
 > 用户×商品锁对漏斗：加购后支付率 21.11%，是纯点击的 10 倍，「加购未支付」是最强召回信号。
 
-（其余 3 张静态图 + 1 张 31 天趋势动图见 `output/charts/`）
+（其余 3 张静态图 + 1 张 31 天趋势动图见 `charts/`）
 
 ---
 
@@ -77,14 +96,15 @@ ecommerce-portfolio/
 ├── 04-visualization.md          可视化说明
 ├── 05-project-report.md         完整项目报告（作品集主体）
 ├── 06-interview-prep.md         2 分钟口述稿 + 简历嵌入版 + 面试题库
+├── requirements.txt             运行依赖（pandas / matplotlib / pillow 版本约束）
 ├── 01_load_and_inspect.py       体检脚本
 ├── 02_clean_and_eda.py          清洗 + EDA 脚本（分块扫描）
 ├── 03_visualize.py              静态图脚本
 ├── 03_visualize_anim.py         动图脚本
-├── data/                        原始 + 清洗后数据
-└── output/
-    ├── eda/                    16 张统计表 + EDA_SUMMARY.txt
-    └── charts/                 chart1-5.png + 动图 GIF
+├── index.html                   网页版作品集（与 GitHub Pages 同源）
+├── charts/                      6 张图表（5 静态 + 1 动图 GIF）
+├── data/                        原始 + 清洗后数据（不入库，见复现步骤）
+└── output/eda/                  16 张统计表 + EDA_SUMMARY.txt
 ```
 
 ---
@@ -97,7 +117,7 @@ ecommerce-portfolio/
 python 01_load_and_inspect.py
 # 3. 清洗 + EDA（两遍分块扫描，约 30 秒；磁盘紧张可加 --no-save-clean 跳过明细落盘）
 python 02_clean_and_eda.py
-# 4. 可视化（生成 output/charts/ 下 5 张静态图）
+# 4. 可视化（生成 charts/ 下 5 张静态图）
 python 03_visualize.py
 # 5. 动图（可选）
 python 03_visualize_anim.py

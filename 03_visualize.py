@@ -34,7 +34,7 @@ plt.rcParams["figure.dpi"] = 130
 plt.rcParams["savefig.bbox"] = "tight"
 
 EDA = os.path.join(os.path.dirname(__file__), "output", "eda")
-OUT = os.path.join(os.path.dirname(__file__), "output", "charts")
+OUT = os.path.join(os.path.dirname(__file__), "charts")
 os.makedirs(OUT, exist_ok=True)
 
 # 统一配色（中国习惯：红=重点/支付）
@@ -113,7 +113,7 @@ def chart_time():
     _style(ax2, "y")
 
     fig.tight_layout()
-    p = os.path.join(OUT, "chart1_time_pattern.png")
+    p = os.path.join(OUT, "01_daily_hourly_trend.png")
     fig.savefig(p)
     plt.close(fig)
     return p, pv_1212, buy_1212, pv_ratio, buy_ratio
@@ -158,7 +158,7 @@ def chart_category():
     _style(ax)
 
     fig.tight_layout()
-    p = os.path.join(OUT, "chart2_category_efficiency.png")
+    p = os.path.join(OUT, "02_category_efficiency.png")
     fig.savefig(p)
     plt.close(fig)
     return p, hole, eff
@@ -201,7 +201,7 @@ def chart_pareto():
     _style(ax)
 
     fig.tight_layout()
-    p = os.path.join(OUT, "chart3_pareto.png")
+    p = os.path.join(OUT, "03_user_purchase_pareto.png")
     fig.savefig(p)
     plt.close(fig)
     return p, cum_p
@@ -234,7 +234,7 @@ def chart_funnel():
     _style(ax, "y")
 
     fig.tight_layout()
-    p = os.path.join(OUT, "chart4_intent_funnel.png")
+    p = os.path.join(OUT, "04_behavior_intent_funnel.png")
     fig.savefig(p)
     plt.close(fig)
     return p, lift
@@ -262,7 +262,7 @@ def chart_geo_bonus():
     _style(ax, "x")
 
     fig.tight_layout()
-    p = os.path.join(OUT, "chart5_geo_bonus.png")
+    p = os.path.join(OUT, "05_geo_region_bonus.png")
     fig.savefig(p)
     plt.close(fig)
     return p

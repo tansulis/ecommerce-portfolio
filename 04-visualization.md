@@ -23,7 +23,7 @@
 
 ### 图1：用户消费时间规律
 
-![图1 消费时间规律](output/charts/chart1_time_pattern.png)
+![图1 消费时间规律](charts/01_daily_hourly_trend.png)
 
 **怎么看：** 上图 31 天日趋势用双轴（左轴点击、右轴支付），避免支付量被点击量压成一条平线；下图 24 小时分布同样双轴。
 
@@ -35,7 +35,7 @@
 
 ### 图2：品类曝光–转化效率（流量黑洞）
 
-![图2 品类曝光-转化](output/charts/chart2_category_efficiency.png)
+![图2 品类曝光-转化](charts/02_category_efficiency.png)
 
 **怎么看：** 横轴是曝光量（对数轴，避免长尾挤成一团），纵轴是支付转化率，气泡大小=支付量。越靠右下=吃流量不产出，越靠左上=曝光少但很能卖。
 
@@ -46,7 +46,7 @@
 
 ### 图3：用户购买量集中度（检验 80/20）
 
-![图3 用户购买量集中度](output/charts/chart3_pareto.png)
+![图3 用户购买量集中度](charts/03_user_purchase_pareto.png)
 
 **怎么看：** 把用户按购买件次从高到低排序，横轴是累计用户占比，纵轴是累计购买量占比；对角虚线是「人人等量购买」的绝对平均线。曲线越鼓=越集中。
 
@@ -60,7 +60,7 @@
 
 ### 图4：行为意向 → 支付转化（加购是最强信号）
 
-![图4 行为意向转化](output/charts/chart4_intent_funnel.png)
+![图4 行为意向转化](charts/04_behavior_intent_funnel.png)
 
 **怎么看：** 按「同一用户 × 同一商品」锁对，看在发生过某行为（点击/收藏/加购）的用户-商品对里，最终有多少发生了支付。
 
@@ -72,7 +72,7 @@
 
 ### 图5（备选）：匿名地域分区行为量
 
-![图5 匿名地域分区](output/charts/chart5_geo_bonus.png)
+![图5 匿名地域分区](charts/05_geo_region_bonus.png)
 
 **说明：** geohash 已脱敏，只能显示「区域 95 / 94 / 9r…」这类匿名前缀，**不能标城市名、不能画地图**。仅用于「区域间相对比较」：区域 95 行为量最高（102 万次，转化 1.20%），区域 94 次之（77 万次，转化 0.83%）。
 
@@ -223,11 +223,11 @@ ax.set_ylabel("该行为后发生支付的比例(%)")
 | 文件 | 说明 |
 |---|---|
 | `03_visualize.py` | 可视化脚本（4 张主图 + 1 张备选地域图，中文设置齐全） |
-| `output/charts/chart1_time_pattern.png` | 图1 消费时间规律 |
-| `output/charts/chart2_category_efficiency.png` | 图2 品类曝光–转化 |
-| `output/charts/chart3_pareto.png` | 图3 购买集中度曲线 |
-| `output/charts/chart4_intent_funnel.png` | 图4 行为意向转化 |
-| `output/charts/chart5_geo_bonus.png` | 图5 备选匿名地域图 |
+| `charts/01_daily_hourly_trend.png` | 图1 消费时间规律 |
+| `charts/02_category_efficiency.png` | 图2 品类曝光–转化 |
+| `charts/03_user_purchase_pareto.png` | 图3 购买集中度曲线 |
+| `charts/04_behavior_intent_funnel.png` | 图4 行为意向转化 |
+| `charts/05_geo_region_bonus.png` | 图5 备选匿名地域图 |
 
 ---
 

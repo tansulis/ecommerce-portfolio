@@ -63,7 +63,7 @@
 |---|---|---|
 | 采集 / 体检 | Python · pandas | `01_load_and_inspect.py` |
 | 清洗 + EDA | Python · pandas（分块扫描） | `02_clean_and_eda.py` · `output/eda/` 16 张统计表 |
-| 可视化 | matplotlib（中文 · 双轴） | `03_visualize.py` · `output/charts/`（chart1_time_pattern / chart2_category_efficiency / chart3_pareto / chart4_intent_funnel / chart5_geo_bonus，共 5 张静态图）+ `03_visualize_anim.py` · `chart1_time_pattern_anim.gif` 动图 |
+| 可视化 | matplotlib（中文 · 双轴） | `03_visualize.py` · `charts/`（01_daily_hourly_trend / 02_category_efficiency / 03_user_purchase_pareto / 04_behavior_intent_funnel / 05_geo_region_bonus，共 5 张静态图）+ `03_visualize_anim.py` · `01b_daily_trend_anim.gif` 动图 |
 | 报告 | Markdown + Mermaid | `05-project-report.md` |
 
 ### 1.4 数据处理流程图
@@ -194,7 +194,7 @@ erDiagram
 
 ### 4.2 消费时间规律（Q1）
 
-![时间规律](output/charts/chart1_time_pattern.png)
+![时间规律](charts/01_daily_hourly_trend.png)
 
 - **大促效应**：双十二（12-12）支付 **14,321** 次，是日常均值的 **4.46 倍**；但点击仅 1.83 倍——说明大促放大的是**成交意愿**（清购物车），而非流量本身。
 - **黄金时段**：20:00–23:00 占全天点击的 **33.6%**，21–22 点是支付最密集时段，应作为投放与客服排班的重点窗口。
@@ -202,7 +202,7 @@ erDiagram
 
 ### 4.3 品类差异（Q2）
 
-![品类效率](output/charts/chart2_category_efficiency.png)
+![品类效率](charts/02_category_efficiency.png)
 
 - **流量黑洞**：品类 1863 获得 **242,793** 次曝光、19,301 次互动，转化率仅 **0.80%**；品类 13230 曝光 217,639 次，转化 0.38%。二者吞掉大量流量却几乎不产出。
 - **高效品类**：品类 6717 仅 4,566 次曝光却转化 **8.37%**；品类 6977 曝光 15,653 次、转化 6.94%，贡献 1,086 笔支付。
@@ -210,7 +210,7 @@ erDiagram
 
 ### 4.4 复购与高价值用户（Q3）
 
-![购买集中度](output/charts/chart3_pareto.png)
+![购买集中度](charts/03_user_purchase_pareto.png)
 
 > **方法说明（口径必须讲清）**：数据集无订单号，一条支付记录 = 支付 1 件商品。因此「复购」严格定义为**同一用户重复购买同一商品**。三种口径分列如下：
 
@@ -235,7 +235,7 @@ erDiagram
 
 ### 4.5 转化路径效率（Q4）
 
-![意向转化漏斗](output/charts/chart4_intent_funnel.png)
+![意向转化漏斗](charts/04_behavior_intent_funnel.png)
 
 采用**用户×商品锁对**口径（同一用户对该商品是否最终支付），避免「全站支付÷全站点击」的口径污染：
 
@@ -264,7 +264,7 @@ erDiagram
 
 ### 4.6 地域消费力（备用·匿名分区）
 
-![匿名区域分区](output/charts/chart5_geo_bonus.png)
+![匿名区域分区](charts/05_geo_region_bonus.png)
 
 > 因 `user_geohash` 已脱敏（标准算法反解坐标落于北美，无法对应真实城市），本报告**不绘制中国地图、不标注城市**，仅以 geohash 前 2 位做匿名分区，比较各区域的行为量相对高低。
 >
@@ -317,7 +317,7 @@ erDiagram
 | **cohort 留存矩阵** | 按首购日分组计算后续周期留存 | 量化用户黏性与流失 |
 | **引入价格/订单数据** | 若有带金额的数据，补全 GMV/AOV/ROI | 升级为经营层分析 |
 | **品类关联（购物篮）** | 同一用户同订单/同会话的多品类共现 | 支撑连带推荐 |
-| **动态可视化上作品集首页** | 已产出 `chart1_time_pattern_anim.gif`，用于演示 | 提升展示观感 |
+| **动态可视化上作品集首页** | 已产出 `01b_daily_trend_anim.gif`，用于演示 | 提升展示观感 |
 
 ### 6.4 附：文件清单与复现方式
 
