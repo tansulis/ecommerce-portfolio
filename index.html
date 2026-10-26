@@ -100,6 +100,23 @@
     <p class="lead" style="margin-top:14px"><b>边界（主动声明）：</b>数据集无价格字段 → 属「行为层」分析而非「经营层」（算不了 GMV/客单价）；未做 RFM 分群（见局限性）。</p>
   </section>
 
+  <!-- 项目档案 -->
+  <section id="profile">
+    <h2><span class="num">▣</span>项目档案</h2>
+    <p class="lead">一页看清项目规模、数据质量与产出物——面试官通常先看这张表。</p>
+    <table>
+      <thead><tr><th style="width:120px">维度</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td><b>数据规模</b></td><td>原始 <b>12,256,906 行 × 6 字段</b>；清洗后 <b>8,164,040 行</b>，覆盖 10,000 用户 / 31 天（2014-11-18 ~ 12-18）</td></tr>
+        <tr><td><b>数据质量</b></td><td>整行完全重复 <b>33.39%</b>（R1 去重）；<code>user_geohash</code> 原始缺失 68%，按 R4 保留不删、仅做标记</td></tr>
+        <tr><td><b>分析维度</b></td><td>时间规律 · 品类效率 · 购买集中度 · 转化漏斗 · 匿名地域分区（五维）</td></tr>
+        <tr><td><b>核心发现</b></td><td>双十二支付 <b>4.46×</b>、加购→支付 <b>21.11%</b>、前 20% 用户仅贡献 <b>54.8%</b>、品类转化率差 <b>10 倍</b></td></tr>
+        <tr><td><b>产出物</b></td><td>6 章报告 1 份 · 静态图 5 张 · 31 天动图 1 张 · 在线网页 1 个 · 面试题库 16 题</td></tr>
+        <tr><td><b>技术栈</b></td><td><span class="tag">Python 3.13</span><span class="tag">pandas 3.1</span><span class="tag">matplotlib 3.11</span><span class="tag">分块聚合</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
   <!-- 业务问题 -->
   <section id="questions">
     <h2><span class="num">Q</span>四个业务问题</h2>
